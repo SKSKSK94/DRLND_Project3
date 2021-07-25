@@ -3,3 +3,4 @@ temp/
 Tennis_Linux/
 src/__pychache__
 src/.ipynb_checkpoints
+*.pyc
