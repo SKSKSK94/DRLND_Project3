@@ -1,6 +1,6 @@
 temp/
 *.log
 Tennis_Linux/
-src/__pychache__
+src/__pycache__
 src/.ipynb_checkpoints
 *.pyc
