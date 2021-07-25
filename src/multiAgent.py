@@ -62,8 +62,10 @@ class MultiAgent():
         """Save experience in replay memory, and use random sample from buffer to learn."""
         # Save experience / reward
         
-        # transform to full
+        # transform to full experience
         full_state, full_action, full_reward, full_next_state, full_done = self.transform_to_full(state, action, reward, next_state, done)
+        
+        # save full experiecne to memory
         self.memory.add(full_state, full_action, full_reward, full_next_state, full_done)
 
         # Learn, if enough samples are available in memory
@@ -166,12 +168,12 @@ class MultiAgent():
             max_t (int): maximum number of timesteps per episode
         """
         self.scores = []                                                # list containing scores from each episode
-        max_scores_window = deque(maxlen=100)                               # last 100 scores
+        max_scores_window = deque(maxlen=100)                           # last 100 scores
         for i_episode in range(1, n_episodes+1):
             env_info = self.env.reset(train_mode=True)[self.brain_name] # reset the environment
-            state = env_info.vector_observations[:, -8:]                        # get the current state
+            state = env_info.vector_observations[:, -8:]                # get the current state
             score = np.zeros(self.agent_num)
-            self.noise_reset()                                         # reset OU noise
+            self.noise_reset()                                          # reset OU noise
             for t in range(max_t):
                 action = self.act(state, add_noise=True)
                 env_info = self.env.step(action)[self.brain_name]       # send the action to the environment
@@ -237,9 +239,3 @@ class ReplayBuffer:
         """Return the current size of internal memory."""
         return len(self.memory)
 
-#%%
-import torch
-
-a = torch.zeros((64, 24))
-b = torch.cat([a, a], dim=-1)
-b.shape
