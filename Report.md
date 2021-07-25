@@ -75,7 +75,7 @@ Psuedocode for Multi-Agent Actor-Critic(**Here pseudocode used DDPG**) for Mixed
 
 ![image](https://user-images.githubusercontent.com/73100569/126896173-966a5613-d045-41a1-b746-a08d6cc525ff.png)
 
-By referring to **2-1. Concepts for TD3** and **2-2. Concepts for multi-agent**, I combined two concepts for implementing my alogorithm to complete this third project. For critic of TD3, it uses **full states(states of all agents)** and **full actions(actions of all agents)**. For actor of TD3, it used only **local states(states of agent that will be updated at current step)** and **local actions(actions of agent that will be updated at current step)**.
+By referring to **2-1. Concepts for TD3** and **2-2. Concepts for multi-agent**, I combined two concepts for implementing my algorithm to complete this third project. For critic of TD3, it uses **full states(states of all agents)** and **full actions(actions of all agents)**. For actor of TD3, it used only **local states(states of agent that will be updated at current step)** and **local actions(actions of agent that will be updated at current step)**.
 
 
 ------------
